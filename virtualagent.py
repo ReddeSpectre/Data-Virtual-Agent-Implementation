@@ -73,7 +73,8 @@ test_accuracy.append(test_acc)
 
 st.write("The results of the completed Train/Test split are as follows:")
 chart_data = {'train accuracy': train_accuracy, 'test accuracy': test_accuracy}
-chart_df = pd.DataFrame(data = chart_data)
+chart_df = pd.DataFrame(data = chart_data
+                       columns = ["test accuracy", "train accuracy"])
 st.bar_chart(data = chart_df, x = None, y = None, width = 0, height = 0, use_container_width = True)
 
 st.caption(svc.score(test_x_vector, test_y))
