@@ -7,7 +7,7 @@ import openai
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 import streamlit as st
-openai.api_key = st.secrets["OPENAI_KEY"]
+
 
 st.title("Data Virtual Agent Implementation")
 st.write("First, we train and define our Sentiment Analysis Model. This may take a few minutes to load, as our Model is using a large number of samples to train")
@@ -170,6 +170,12 @@ evaluation_acc, sentiment_counts, evaluation_f1, evaluation_classification = sa_
 
 st.write("After running an evaluation, the user could then send the results to the Virtual Assistant to receive an explanation.")
 st.caption(f"-------------------------------------------------------")
+
+#Get API Key from user
+st.write("In order to continue with the demonstration, please input a valid OpenAI API Key:")
+key = st.text_input("API Key", "[Insert API Key Here]")
+openai.api_key = key
+
 explain_results_with_gpt3(evaluation_acc, sentiment_counts, evaluation_f1, evaluation_classification)
 
 st.write("Future iterations could, from there, implement the ability to discuss the results with the virtual agent by allowing it to respond to user input questions, but would require a more extensively trained agent than this demo was able to implement.")
