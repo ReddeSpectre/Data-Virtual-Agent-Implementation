@@ -181,7 +181,7 @@ while (keyinput == 0):
     st.write("In order to continue the demonstration, please input a valid OpenAI API Key. An Error Message will appear later in the code until a valid key is applied:")
     key = st.text_input("API Key", "[Insert API Key Here]")
     keyinput = 1
-st.write("The remaining code may take a few minutes to load.)
+st.write("The remaining code may take a few minutes to load.")
 openai.api_key = key
 
 explain_results_with_gpt3(evaluation_acc, sentiment_counts, evaluation_f1, evaluation_classification)
