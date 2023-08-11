@@ -35,7 +35,7 @@ train_x, train_y = train['tweets'], train['labels']
 test_x, test_y = test['tweets'], test['labels']
 
 #Implement Stop Words, vectorize data
-
+global tfidf
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 tfidf = TfidfVectorizer(stop_words='english')
@@ -55,6 +55,7 @@ train_accuracy = []
 test_accuracy = []
 
 #Fit the Data to an SVC Model
+global svc
 from sklearn.svm import SVC
 svc = SVC(kernel='linear')
 svc.fit(train_x_vector, train_y)
