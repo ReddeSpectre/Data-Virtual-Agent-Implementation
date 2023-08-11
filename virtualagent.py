@@ -98,13 +98,14 @@ global evaluation_classification
 def sa_model_evaluation(tfidf, svc):
 
     evaluation_sample = review.sample(100)
+    evaluation_sample = evaluation_sample.dropna(subset=['tweets'])
     # Remove punctuation from datasets
     evaluation_sample['tweets'] = evaluation_sample['tweets'].str.replace('[{}]'.format(string.punctuation), '')
         
     evaluation_x,evaluation_y = evaluation_sample['tweets'],evaluation_sample['labels']
 
     #vectorize data for predictions
-    evaluation_vectorized = tfidf.fit_transform(evaluation_x.values.astype('U'))
+    evaluation_vectorized = tfidf.transform(evaluation_x.values.astype('U'))
 
     #Predict Sentiments for data
     evaluation_predictions = svc.predict(evaluation_vectorized)
