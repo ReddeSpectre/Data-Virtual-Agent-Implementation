@@ -104,7 +104,7 @@ def sa_model_evaluation(tfidf, svc):
     evaluation_x,evaluation_y = evaluation_sample['tweets'],evaluation_sample['labels']
 
     #vectorize data for predictions
-    evaluation_vectorized = tfidf.fit_transform(evaluation_x)
+    evaluation_vectorized = tfidf.fit_transform(evaluation_x.values.astype('U'))
 
     #Predict Sentiments for data
     evaluation_predictions = svc.predict(evaluation_vectorized)
