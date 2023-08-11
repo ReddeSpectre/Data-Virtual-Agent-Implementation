@@ -8,12 +8,12 @@ import openai
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 import streamlit as st
-openai.api_key = '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'
+openai.api_key = st.secrets["OPENAI_KEY"]
 
 st.title("Data Virtual Agent Implementation")
 st.write("First, we train and define our Sentiment Analysis Model. This may take a few minutes to load, as our Model is using a large number of samples to train")
 # Setup dataset for training
-review = pd.read_csv('C:/Users/dooms/Sentiment Analysis/ChatGPT related Twitter Dataset.csv')
+review = pd.read_csv(r'ChatGPT related Twitter Dataset.csv')
 
 positive = review[review['labels'] == 'good'][:10000]
 negative = review[review['labels'] == 'bad'][:10000]
