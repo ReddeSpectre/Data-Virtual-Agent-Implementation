@@ -10,15 +10,6 @@ import streamlit as st
 
 
 st.title("Data Virtual Agent Implementation")
-
-keyinput = 0
-while (keyinput == 0):
-    #Get API Key from user
-    st.write("In order to begin the demonstration, please input a valid OpenAI API Key. An Error Message will appear later in the code until a valid key is applied:")
-    key = st.text_input("API Key", "[Insert API Key Here]")
-    keyinput = 1
-    
-
 st.write("First, we train and define our Sentiment Analysis Model. This may take a few minutes to load, as our Model is using a large number of samples to train")
 
 # Setup dataset for training
@@ -184,6 +175,13 @@ evaluation_acc, sentiment_counts, evaluation_f1, evaluation_classification = sa_
 st.write("After running an evaluation, the user could then send the results to the Virtual Assistant to receive an explanation.")
 st.caption(f"-------------------------------------------------------")
 
+keyinput = 0
+while (keyinput == 0):
+    #Get API Key from user
+    st.write("In order to continue the demonstration, please input a valid OpenAI API Key. An Error Message will appear later in the code until a valid key is applied:")
+    key = st.text_input("API Key", "[Insert API Key Here]")
+    keyinput = 1
+st.write("The remaining code may take a few minutes to load.)
 openai.api_key = key
 
 explain_results_with_gpt3(evaluation_acc, sentiment_counts, evaluation_f1, evaluation_classification)
