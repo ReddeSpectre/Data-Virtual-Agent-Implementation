@@ -72,10 +72,10 @@ train_accuracy.append(train_acc)
 test_accuracy.append(test_acc)
 
 st.write("The results of the completed Train/Test split are as follows:")
-chart_data = {'train accuracy': train_accuracy} 
-chart_data_2= {'test accuracy': test_accuracy}
-st.bar_chart(data = [chart_data, chart_data_2], x = None, y = None, width = 0, height = 0, use_container_width = True)
+st.bar_chart(data = [train_accuracy, test_accuracy], x = None, y = None, width = 0, height = 0, use_container_width = True)
+st.caption ("training score on the left, testing score on the right.")
 
+st.write("The accuracy score for the testing secton was:")
 st.caption(svc.score(test_x_vector, test_y))
 
 #Display F1-score
