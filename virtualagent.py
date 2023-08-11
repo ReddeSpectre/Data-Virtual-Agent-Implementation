@@ -171,9 +171,13 @@ evaluation_acc, sentiment_counts, evaluation_f1, evaluation_classification = sa_
 st.write("After running an evaluation, the user could then send the results to the Virtual Assistant to receive an explanation.")
 st.caption(f"-------------------------------------------------------")
 
-#Get API Key from user
-st.write("In order to continue with the demonstration, please input a valid OpenAI API Key:")
-key = st.text_input("API Key", "[Insert API Key Here]")
+keyinput = 0
+while (keyinput == 0):
+    #Get API Key from user
+    st.write("In order to begin the demonstration, please input a valid OpenAI API Key. An Error Message will be displayed below until a valid key is applied:")
+    key = st.text_input("API Key", "[Insert API Key Here]")
+    keyinput = 1
+    
 openai.api_key = key
 
 explain_results_with_gpt3(evaluation_acc, sentiment_counts, evaluation_f1, evaluation_classification)
