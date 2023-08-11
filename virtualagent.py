@@ -14,7 +14,7 @@ st.title("Data Virtual Agent Implementation")
 keyinput = 0
 while (keyinput == 0):
     #Get API Key from user
-    st.write("In order to begin the demonstration, please input a valid OpenAI API Key. An Error Message will be displayed below until a valid key is applied:")
+    st.write("In order to begin the demonstration, please input a valid OpenAI API Key. An Error Message will appear later in the code until a valid key is applied:")
     key = st.text_input("API Key", "[Insert API Key Here]")
     keyinput = 1
     
